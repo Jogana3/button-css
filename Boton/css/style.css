@@ -1,0 +1,111 @@
+:root{
+    font-size: 16px;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btn{
+    position: relative;
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .2s;
+    background: rgb(185, 240, 243);
+    border: 2px solid rgb(149, 238, 243);
+    user-select: none;
+}
+
+div.btn::before{
+    content: '';
+    box-shadow: 0 0 10px 5px #5ebfff;
+    background: rgb(174,235,238);
+    background: radial-gradient(circle, rgba(174,235,238,1) 0%, rgba(148,187,233,1) 100%);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    animation: fondoanimado 20s linear infinite;
+    background-size: 400%;
+    border-radius: 20px;
+}
+
+div.btn::after{
+    content: '';
+    box-shadow: 0 0 10px 5px #5e79ff;
+    background: rgb(46,59,194);
+    background: radial-gradient(circle, rgba(46,59,194,1) 0%, rgba(66,149,246,1) 100%);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    animation: fondoanimado 20s linear infinite;
+    background-size: 400%;
+    border-radius: 20px;
+}
+
+.btn:active::after{
+    opacity: 1;
+}
+
+.btn:active{
+    transform: scale(.9);
+    color: white;
+}
+
+.btn:active .txt{
+    font-size: 1.4rem;
+}
+
+.btn:hover::before{
+    opacity: 1;
+}
+
+.txt{
+    transition: .5s;
+    font-size: 1.5rem;
+    letter-spacing: .2rem;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+
+.btn:hover .txt{
+        transform: scale(1.2);
+        letter-spacing: .5em;
+}
+
+@keyframes fondoanimado {
+    0%{
+        background-position: 0 0;
+    }    
+
+    50%{
+        background-position: 400% 0;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
+}
